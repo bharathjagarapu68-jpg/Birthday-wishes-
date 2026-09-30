@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Bestie! 🎂</title>
+  <style>
+    :root {
+      --pink: #ff5fa2;
+      --purple: #8057d7;
+      --ink: #382444;
+      --card: rgba(255, 255, 255, 0.92);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.65) 0 3px, transparent 4px),
+        radial-gradient(circle at 85% 70%, rgba(255,255,255,.5) 0 4px, transparent 5px),
+        linear-gradient(135deg, #ffd3e5 0%, #e5d7ff 50%, #cceeff 100%);
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: min(100% - 2rem, 900px);
+      margin: 0 auto;
+      padding: 3rem 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: 28px;
+      padding: clamp(1.25rem, 5vw, 3.25rem);
+      text-align: center;
+      box-shadow: 0 24px 70px rgba(88, 46, 126, .18);
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 1rem;
+      padding: .5rem .9rem;
+      border-radius: 999px;
+      color: #8b2866;
+      background: #ffe3f0;
+      font-size: .85rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: #8d3cc1;
+      font-size: clamp(2.3rem, 8vw, 4.8rem);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+
+    .subtitle {
+      margin: 1rem auto 2rem;
+      max-width: 38rem;
+      color: #765d83;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      line-height: 1.7;
+    }
+
+    .cake {
+      font-size: clamp(3rem, 10vw, 5rem);
+      margin: .25rem 0 1.25rem;
+      animation: bob 2.5s ease-in-out infinite;
+    }
+
+    .photo-frame {
+      width: min(100%, 520px);
+      margin: 0 auto 2rem;
+      padding: .6rem;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #ff8fc4, #a78bfa, #78d9f7);
+      transform: rotate(-1deg);
+    }
+
+    .photo-placeholder {
+      min-height: 230px;
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fff0f7, #f2eaff);
+      color: #8d5b9f;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .photo-placeholder span {
+      display: block;
+      font-size: 3rem;
+      margin-bottom: .5rem;
+    }
+
+    h2 {
+      margin: 1.5rem 0 .75rem;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      color: #a13e91;
+    }
+
+    .message {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #594665;
+    }
+
+    blockquote {
+      max-width: 620px;
+      margin: 1.75rem auto;
+      padding: 1.25rem 1.5rem;
+      border-left: 5px solid var(--pink);
+      border-radius: 0 16px 16px 0;
+      background: #fff0f7;
+      color: #713b76;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      font-style: italic;
+      line-height: 1.8;
+      text-align: left;
+    }
+
+    .signature {
+      margin-top: 1.5rem;
+      color: #8d3cc1;
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    .hearts {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -3rem;
+      opacity: .55;
+      font-size: 1.5rem;
+      animation: float-up 12s linear infinite;
+    }
+
+    .heart:nth-child(1) { left: 8%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 25%; animation-delay: 3s; font-size: 2rem; }
+    .heart:nth-child(3) { left: 48%; animation-delay: 6s; }
+    .heart:nth-child(4) { left: 72%; animation-delay: 1.5s; font-size: 2.2rem; }
+    .heart:nth-child(5) { left: 91%; animation-delay: 4.5s; }
+
+    @keyframes float-up {
+      from { transform: translateY(0) rotate(0); }
+      to { transform: translateY(-115vh) rotate(25deg); }
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+
+    @media (max-width: 520px) {
+      .page { width: min(100% - 1rem, 900px); padding: 1rem 0; }
+      .card { border-radius: 20px; }
+      .photo-placeholder { min-height: 180px; }
+      blockquote { padding: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" aria-hidden="true">
+    <span class="heart">💗</span>
+    <span class="heart">💖</span>
+    <span class="heart">💕</span>
+    <span class="heart">💞</span>
+    <span class="heart">💗</span>
+  </div>
+
+  <main class="page">
+    <article class="card">
+      <p class="eyebrow">A little celebration for my favorite person</p>
+      <div class="cake" aria-hidden="true">🎂</div>
+      <h1>Happy Birthday,<br />Bestie! 🎉</h1>
+      <p class="subtitle">
+        Today is all about you — your smile, your dreams, and the wonderful person you are.
+      </p>
+
+      <div class="photo-frame">
+        <!-- Replace this placeholder with an image:
+             <img src="best-friend.jpg" alt="A favorite memory together"
+                  style="display:block;width:100%;border-radius:16px;" />
+        -->
+        <div class="photo-placeholder">
+          <div><span>📸</span>Add your favorite photo here<br /><small>Replace this box with your picture</small></div>
+        </div>
+      </div>
+
+      <h2>To My Best Friend 💖</h2>
+      <p class="message">
+        Thank you for being there through all the laughs, crazy memories,
+        difficult moments, and unforgettable adventures. Life is brighter
+        and so much more fun with you in it.
+      </p>
+
+      <h2>My Birthday Wish for You ✨</h2>
+      <blockquote>
+        May every dream you have come true,<br />
+        may every day bring you a reason to smile,<br />
+        and may our friendship stay strong forever.<br />
+        Happy Birthday, Bestie! ❤️
+      </blockquote>
+
+      <p class="message">
+        May your special day be filled with happiness, love, laughter,
+        sweet surprises, and everything your heart wishes for.
+      </p>
+      <p class="signature">Forever friends 🤝❤️</p>
+      <p aria-label="Birthday celebration">🎈 🎉 🥳 🎂 💖 🎁 🎈</p>
+    </article>
+  </main>
+</body>
+</html>
